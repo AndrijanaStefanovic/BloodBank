@@ -8,19 +8,20 @@ namespace BloodBank.Model
 {
     public class Donor
     {
-        private long Id { get; }
-        private string firstName { get; set; }
-        private string lastName;
-        private BloodType bloodType;
+        public long Id { get; }
+        public string EmailAddress { get; set; }
+        public string Password { get; private set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public BloodType BloodType { get; set; }
 
-        public Donor(long id, string firstName, string lastName, BloodType bloodType)
+        public Donor(string firstName, string lastName, string emailAddress, string password, BloodType bloodType)
         {
-            Id = id;
-            this.firstName = firstName;
-            this.lastName = lastName;
-            this.bloodType = bloodType;
+            FirstName = firstName;
+            LastName = lastName;
+            EmailAddress = emailAddress;
+            Password = password;
+            BloodType = bloodType;
         }
-
-
     }
 }
