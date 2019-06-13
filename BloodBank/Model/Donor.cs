@@ -8,9 +8,9 @@ namespace BloodBank.Model
 {
     public class Donor
     {
-        public long Id { get; }
-        public string EmailAddress { get; set; }
-        public string Password { get; private set; }
+        public long Id { get; private set; }
+        public string Email { get; set; }
+        public string Password { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public BloodType BloodType { get; set; }
@@ -19,7 +19,7 @@ namespace BloodBank.Model
         {
             FirstName = firstName;
             LastName = lastName;
-            EmailAddress = emailAddress;
+            Email = emailAddress;
             Password = password;
             BloodType = bloodType;
         }

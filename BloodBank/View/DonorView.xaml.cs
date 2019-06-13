@@ -22,7 +22,7 @@ namespace BloodBank.View
     public partial class DonorView : Window
     {
         private DonorViewModel viewModel;
-
+       
         public DonorView()
         {
             InitializeComponent();
@@ -38,7 +38,8 @@ namespace BloodBank.View
                 MessageBox.Show("Empty fields");
                 return;
             }
-            viewModel.CreateDonor(tbName.Text, tbLastName.Text, tbEmail.Text, tbPassword.Password, BloodType.A);
+            viewModel.CreateDonor(tbName.Text, tbLastName.Text, tbEmail.Text, tbPassword.Password, 
+                (BloodType)cbBloodType.SelectedValue);
         }
 
         private bool Validate()

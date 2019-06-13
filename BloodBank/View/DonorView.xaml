@@ -18,6 +18,7 @@
             <RowDefinition Height="30"/>
             <RowDefinition Height="30"/>
             <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
@@ -86,8 +87,25 @@
                  Name="tbPassword">
         </PasswordBox>
 
+        <Label Grid.Column="0" 
+               Grid.Row="4"
+               VerticalAlignment="Center"
+               HorizontalAlignment="Right"
+               Name="lblBloodType"
+               Content="Blood type:">
+        </Label>
+        <ComboBox Grid.Column="1"
+                  Grid.Row="4"
+                  VerticalAlignment="Center"
+                  HorizontalAlignment="Left"
+                  Width="80"
+                  Name="cbBloodType"
+                  SelectedValue="{Binding BloodType, Mode=TwoWay}" 
+                  ItemsSource="{Binding BloodTypes}">
+        </ComboBox>
+        
         <DockPanel Grid.Column="1"
-                    Grid.Row="4">
+                    Grid.Row="5">
             <Button VerticalAlignment="Top"
                     DockPanel.Dock="Left"
                     Width="70"
