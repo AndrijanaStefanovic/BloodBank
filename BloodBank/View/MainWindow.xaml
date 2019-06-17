@@ -8,20 +8,30 @@
         WindowStartupLocation="CenterScreen"
         Title="MainWindow" 
         Height="450" Width="800">
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="700"/>
-            <ColumnDefinition Width="*"/>
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="30"/>
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
+    <DockPanel>
+        <Menu DockPanel.Dock="Top"
+              Width="Auto"
+              Height="20">
+            <MenuItem Header="Donors">
+                <MenuItem Header="Add" 
+                          Name="miAddDonor"/>
+                <MenuItem Header="Donor List"
+                          Name="miDonorList"/>
+            </MenuItem>
+        </Menu>
 
-        <Button Grid.Column="1" 
-                Grid.Row="0"
-                Name="btnRegisterDonor"
-                Content="Register">
-        </Button>
-    </Grid>
+        <StackPanel>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="700"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+            </Grid>
+        </StackPanel>
+    </DockPanel>
 </Window>

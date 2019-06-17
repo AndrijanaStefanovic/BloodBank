@@ -1,4 +1,6 @@
-﻿using BloodBank.View;
+﻿using BloodBank.Model;
+using BloodBank.Util;
+using BloodBank.View;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,10 +26,11 @@ namespace BloodBank
         public MainWindow()
         {
             InitializeComponent();
-            btnRegisterDonor.Click += btnRegisterDonor_Click;
+            BloodSupply bloodSupply = new BloodSupply(new DatabaseHandler());
+            miAddDonor.Click += miAddDonor_Click;
         }
 
-        private void btnRegisterDonor_Click(object sender, RoutedEventArgs routedEventArgs)
+        private void miAddDonor_Click(object sender, RoutedEventArgs routedEventArgs)
         {
             DonorView donorView = new DonorView();
             donorView.Show();

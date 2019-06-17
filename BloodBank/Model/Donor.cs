@@ -10,18 +10,19 @@ namespace BloodBank.Model
     {
         public long Id { get; private set; }
         public string Email { get; set; }
-        public string Password { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public BloodType BloodType { get; set; }
+        public DateTime? LastDonation { get; set; }
 
-        public Donor(string firstName, string lastName, string emailAddress, string password, BloodType bloodType)
+        public Donor(long id, string firstName, string lastName, string emailAddress, BloodType bloodType)
         {
+            Id = id;
             FirstName = firstName;
             LastName = lastName;
             Email = emailAddress;
-            Password = password;
             BloodType = bloodType;
+            LastDonation = null;
         }
     }
 }

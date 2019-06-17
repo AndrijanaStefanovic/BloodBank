@@ -10,24 +10,21 @@ namespace BloodBank.Viewmodel
 {
     class DonorViewModel
     {
-        private List<Donor> donors = new List<Donor>();
         private DatabaseHandler databaseHandler = new DatabaseHandler();
 
-        public BloodType BloodType { get; set; }
-
-        public IList<BloodType> BloodTypes
+        public IEnumerable<object> BloodTypes
         {
             get
             {
-                return Enum.GetValues(typeof(BloodType)).Cast<BloodType>().ToList();
+                return Enum.GetValues(typeof(BloodType))
+                           .Cast<object>()
+                           .Select(e => new { Value = (int)e, DisplayName = ((BloodType)e).GetDescription()});
             }
         }
 
-        public void CreateDonor(string firstName, string lastName, string email, string password, BloodType bloodType)
+        public bool CreateDonor(long id, string firstName, string lastName, string email, BloodType bloodType)
         {
-            Donor d = new Donor(firstName, lastName, email, password, bloodType);
-            donors.Add(d);
-            databaseHandler.TryCreateDonor(d);
+            return databaseHandler.TryCreateDonor(new Donor(id, firstName, lastName, email, bloodType));
         }
     }
 }

@@ -67,9 +67,11 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Model\BloodSupply.cs" />
     <Compile Include="Model\BloodType.cs" />
     <Compile Include="Model\Donor.cs" />
     <Compile Include="Util\DatabaseHandler.cs" />
+    <Compile Include="Util\EnumHelper.cs" />
     <Compile Include="Viewmodel\DonorViewModel.cs" />
     <Compile Include="View\DonorView.xaml.cs">
       <DependentUpon>DonorView.xaml</DependentUpon>
