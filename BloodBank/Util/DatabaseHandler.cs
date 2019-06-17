@@ -14,13 +14,32 @@ namespace BloodBank.Util
     {
         private const string connectionString = "Data Source=DESKTOP-4VDDSDR\\SERVER;Initial Catalog=BloodBank;Integrated Security=True";
 
+        private bool TryConnect(SqlConnection conn)
+        {
+            if (conn.State == ConnectionState.Open)
+            {
+                return true;
+            }
+            try
+            {
+                conn.Open();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+                return false;
+            }
+            return true;
+        }
+
         public bool TryCreateDonor(Donor donor)
         {
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
-                conn.Open();
-                string commandText = "INSERT INTO [dbo].[DONOR]([FIRST_NAME],[LAST_NAME],[EMAIL],[PASSWORD],[BLOOD_TYPE])" +
-                                       $" VALUES ('{donor.FirstName}','{donor.LastName}','{donor.Email}','{donor.Password}',{(int)donor.BloodType});";
+                if (!TryConnect(conn)) return false;
+
+                string commandText = "INSERT INTO [dbo].[DONOR]([ID],[FIRST_NAME],[LAST_NAME],[EMAIL],[BLOOD_TYPE])" +
+                                       $" VALUES ({donor.Id},'{donor.FirstName}','{donor.LastName}','{donor.Email}',{(int)donor.BloodType});";
                 using (SqlCommand command = new SqlCommand(commandText, conn))
                 {
                     command.CommandType = CommandType.Text;
