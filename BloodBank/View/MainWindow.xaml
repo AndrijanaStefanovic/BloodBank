@@ -23,7 +23,7 @@
         <StackPanel>
             <Grid>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="700"/>
+                    <ColumnDefinition Width="400"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
@@ -31,6 +31,65 @@
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
 
+                <StackPanel Grid.Column="0"
+                            Grid.Row="1"
+                            Name="spBloodSupply">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="50"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="30"/>
+                            <RowDefinition Height="30"/>
+                            <RowDefinition Height="30"/>
+                            <RowDefinition Height="30"/>
+                            <RowDefinition Height="30"/>
+                            <RowDefinition Height="30"/>
+                            <RowDefinition Height="30"/>
+                            <RowDefinition Height="30"/>
+                            <RowDefinition Height="20"/>
+                        </Grid.RowDefinitions>
+
+                        <Label Grid.Column="0"
+                               Grid.Row="0"
+                               Name="lblAPlus"
+                               Content="A+ :"/>
+                        <Label Grid.Column="1"
+                               Grid.Row="0"
+                               Name="lblAPlusQuantity"
+                               Content="{Binding BloodSupply.APos}"/>
+
+                        <Label Grid.Column="0"
+                               Grid.Row="1"
+                               Name="lblBPlus"
+                               Content="B+ :"/>
+                        <Label Grid.Column="1"
+                               Grid.Row="1"
+                               Name="lblBPlusQuantity"
+                               Content="{Binding BloodSupply.BPos}"/>
+                        
+                        <Label Grid.Column="0"
+                               Grid.Row="2"
+                               Name="lblABPlus"
+                               Content="AB+ :"/>
+                        <Label Grid.Column="1"
+                               Grid.Row="2"
+                               Name="lblABPlusQuantity"
+                               Content="{Binding BloodSupply.ABPos}"/>
+                        
+                        <Label Grid.Column="0"
+                               Grid.Row="3"
+                               Name="lblOPlus"
+                               Content="0+ :"/>
+                        <Label Grid.Column="1"
+                               Grid.Row="3"
+                               Name="lblOPlusQuantity"
+                               Content="{Binding BloodSupply.OPos}"/>
+
+
+                    </Grid>
+                </StackPanel>
             </Grid>
         </StackPanel>
     </DockPanel>

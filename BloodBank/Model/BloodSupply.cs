@@ -18,9 +18,21 @@ namespace BloodBank.Model
             }
         }
 
+        public int APos { get { return GetAvailableUnits(BloodType.Apos); } }
+    
+        public int BPos { get { return GetAvailableUnits(BloodType.Bpos); } }
+
+        public int ABPos { get { return GetAvailableUnits(BloodType.ABpos); } }
+
+        public int OPos { get { return GetAvailableUnits(BloodType.Opos); } }
+
         public int GetAvailableUnits(BloodType bloodType)
         {
-            return unitsByBloodType[bloodType];
+            if (!unitsByBloodType.TryGetValue(bloodType, out int units))
+            {
+                unitsByBloodType[bloodType] = 0;
+            }
+            return units;
         }
 
         public void AddUnits(BloodType bloodType, int units)

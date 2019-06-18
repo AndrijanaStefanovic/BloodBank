@@ -1,6 +1,7 @@
 ﻿using BloodBank.Model;
 using BloodBank.Util;
 using BloodBank.View;
+using BloodBank.Viewmodel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,8 +27,12 @@ namespace BloodBank
         public MainWindow()
         {
             InitializeComponent();
-            BloodSupply bloodSupply = new BloodSupply(new DatabaseHandler());
+            DataContext = new BloodSupplyViewModel();
             miAddDonor.Click += miAddDonor_Click;
+            System.Diagnostics.Debug.WriteLine(((BloodSupplyViewModel)DataContext).BloodSupply.APos);
+            System.Diagnostics.Debug.WriteLine(((BloodSupplyViewModel)DataContext).BloodSupply.BPos);
+            System.Diagnostics.Debug.WriteLine(((BloodSupplyViewModel)DataContext).BloodSupply.ABPos);
+            System.Diagnostics.Debug.WriteLine(((BloodSupplyViewModel)DataContext).BloodSupply.OPos);
         }
 
         private void miAddDonor_Click(object sender, RoutedEventArgs routedEventArgs)

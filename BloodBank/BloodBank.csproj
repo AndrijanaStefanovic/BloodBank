@@ -72,6 +72,7 @@
     <Compile Include="Model\Donor.cs" />
     <Compile Include="Util\DatabaseHandler.cs" />
     <Compile Include="Util\EnumHelper.cs" />
+    <Compile Include="Viewmodel\BloodSupplyViewModel.cs" />
     <Compile Include="Viewmodel\DonorViewModel.cs" />
     <Compile Include="View\DonorView.xaml.cs">
       <DependentUpon>DonorView.xaml</DependentUpon>
