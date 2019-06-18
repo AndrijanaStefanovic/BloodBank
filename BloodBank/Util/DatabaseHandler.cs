@@ -74,7 +74,7 @@ namespace BloodBank.Util
                     {
                         while (reader.Read())
                         {
-                            BloodType bloodType = (BloodType)reader.GetValue(0);
+                            BloodType bloodType = (BloodType)reader.GetInt32(0);
                             int units = reader.GetInt32(1);
                             yield return new Tuple<BloodType, int>(bloodType, units);
                         }
